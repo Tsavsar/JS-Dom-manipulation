@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <script defer src="./content.js"></script>
+    <link rel="stylesheet" href="blogstyle.css" />
+  </head>
+  <body>
+    <div class="bio">
+      <img src="img_avatar.png" alt="Avatar" class="avatar" />
+      <h1 class="name"><span class="name"></span></h1>
+      <h1 class="age"><span class="age"></span></h1>
+      <h1 class="dob"><span class="dob"></span></h1>
+
+      <script type="module">
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        const nameSpan = document.querySelector(".name");
+        const ageSpan = document.querySelector(".age");
+        const dobSpan = document.querySelector(".dob");
+
+        nameSpan.innerText = userData.username;
+        ageSpan.innerText = userData.age;
+        dobSpan.innerText = userData.dob;
+      </script>
+    </div>
+    <div class="c-addhere"></div>
+    <div>
+      <form class="content">
+        <input type="text" placeholder="Topic" class="topic" />
+        <input type="text" placeholder="Message" class="message" />
+        <button class="post-btn" type="submit">Post</button>
+      </form>
+      <div class="post-container">
+        <ul class="posts"></ul>
+      </div>
+    </div>
+
+    <div class="premade">
+      <div class="box">
+        <h2>Move this up</h2>
+        <button class="add">+</button>
+      </div>
+    </div>
+  </body>
+</html>
